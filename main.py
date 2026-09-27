@@ -10,6 +10,10 @@ print(folder_path)
 folder_exists = Path(folder_path).is_dir()
 print(folder_exists)
 
+if not folder_exists:
+    raise SystemExit("Path must point to an existing folder.")
+
+
 # 2. Scan the files directly inside the folder.
 # 3. Build the organization plan and show the preview.
 # 4. Ask for the user's confirmation.
