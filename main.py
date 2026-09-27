@@ -13,8 +13,19 @@ print(folder_exists)
 if not folder_exists:
     raise SystemExit("Path must point to an existing folder.")
 
-
 # 2. Scan the files directly inside the folder.
+
+files = []
+
+for item in Path(folder_path).iterdir():
+    if item.is_file() and item.name not in ("main.py", "organizer.py"):
+        files.append(item)
+
+if files:
+    print("Files in folder:")
+    for item in files:
+        print(item.name)
+
 # 3. Build the organization plan and show the preview.
 # 4. Ask for the user's confirmation.
 # 5. If the user confirms, start organizing the files.
