@@ -16,10 +16,19 @@ if not folder_exists:
 # 2. Scan the files directly inside the folder.
 
 files = []
+found = 0
+skipped = 0
 
 for item in Path(folder_path).iterdir():
-    if item.is_file() and item.name not in ("main.py", "organizer.py"):
-        files.append(item)
+    if item.is_file():
+        found = found + 1
+        if item.name in ("main.py", "organizer.py"):
+            skipped = skipped + 1
+        else:
+            files.append(item)
+
+print("Found:", found)
+print("Skipped:", skipped)
 
 if files:
     print("Files in folder:")
