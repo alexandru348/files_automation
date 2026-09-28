@@ -36,6 +36,25 @@ if files:
         print(item.name)
 
 # 3. Build the organization plan and show the preview.
+
+for item in files:
+    extension = item.suffix.lower()
+    if extension in (".txt", ".md", ".pdf", ".docx", ".xlsx", ".pptx"):
+        category = "Documents"
+    elif extension in (".jpg", ".jpeg", ".png", ".gif", "webp"):
+        category = "Images"
+    elif extension in (".zip", ".rar", ".7z"):
+        category = "Archives"
+    elif extension in (".py", ".cpp", ".h", ".html", ".css", ".js"):
+        category = "Code"
+    elif extension in (".mp3", ".wav"):
+        category = "Audio"
+    elif extension in (".mp4", ".mov", ".mkv"):
+        category = "Video"
+    else:
+        category = "Other"
+    print(item.name, "->", category)
+
 # 4. Ask for the user's confirmation.
 # 5. If the user confirms, start organizing the files.
 # 6. Show the final report: found, moved, skipped, errors.
