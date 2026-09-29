@@ -37,6 +37,8 @@ if files:
 
 # 3. Build the organization plan and show the preview.
 
+plan = []
+
 for item in files:
     extension = item.suffix.lower()
     if extension in (".txt", ".md", ".pdf", ".docx", ".xlsx", ".pptx"):
@@ -53,7 +55,13 @@ for item in files:
         category = "Video"
     else:
         category = "Other"
-    print(item.name, "->", category)
+
+    plan.append((item, category))
+
+if plan:
+    print("Preview:")
+    for item, category in plan:
+        print(item.name, "->", category)
 
 # 4. Ask for the user's confirmation.
 # 5. If the user confirms, start organizing the files.
