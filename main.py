@@ -62,6 +62,8 @@ if plan:
     print("Preview:")
     for item, category in plan:
         print(item.name, "->", category)
+else:
+    print("No files to organize.")
 
 # 4. Ask for the user's confirmation.
 # 5. If the user confirms, start organizing the files.
