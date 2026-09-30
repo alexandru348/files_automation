@@ -77,17 +77,20 @@ if confirmation != "y":
 # 5. If the user confirms, start organizing the files.
 
 for item, category in plan:
-    destination_folder = Path(folder_path) / category
-    destination_folder.mkdir(exist_ok=True)
-    destination = destination_folder / item.name
+    try:
+        destination_folder = Path(folder_path) / category
+        destination_folder.mkdir(exist_ok=True)
+        destination = destination_folder / item.name
 
-    counter = 1
-    while destination.exists():
-        destination = destination_folder / f"{item.stem}_{counter}{item.suffix}"
-        counter = counter + 1
+        counter = 1
+        while destination.exists():
+            destination = destination_folder / f"{item.stem}_{counter}{item.suffix}"
+            counter = counter + 1
 
-    item.rename(destination)
-    print(item.name, "->", destination)
+        item.rename(destination)
+        print(item.name, "->", destination)
+    except OSError as error:
+        print("Error processing:", item.name, "-", error)
 
 # 6. Show the final report: found, moved, skipped, errors.
 
