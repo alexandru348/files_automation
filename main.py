@@ -80,6 +80,12 @@ for item, category in plan:
     destination_folder = Path(folder_path) / category
     destination_folder.mkdir(exist_ok=True)
     destination = destination_folder / item.name
+
+    if destination.exists():
+        print("Name conflict:", destination)
+    else:
+        print("Destination available:", destination)
+
     print(item.name, "->", destination)
 
 # 6. Show the final report: found, moved, skipped, errors.
