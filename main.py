@@ -75,6 +75,12 @@ if confirmation != "y":
     raise SystemExit
 
 # 5. If the user confirms, start organizing the files.
+
+for item, category in plan:
+    destination_folder = Path(folder_path) / category
+    destination = destination_folder / item.name
+    print(item.name, "->", destination)
+
 # 6. Show the final report: found, moved, skipped, errors.
 
 # Subfolders are ignored druing scanning, and the tool's Python files are protected.
