@@ -86,6 +86,7 @@ for item, category in plan:
         destination = destination_folder / f"{item.stem}_{counter}{item.suffix}"
         counter = counter + 1
 
+    item.rename(destination)
     print(item.name, "->", destination)
 
 # 6. Show the final report: found, moved, skipped, errors.
