@@ -78,6 +78,7 @@ if confirmation != "y":
 
 for item, category in plan:
     destination_folder = Path(folder_path) / category
+    destination_folder.mkdir(exist_ok=True)
     destination = destination_folder / item.name
     print(item.name, "->", destination)
 
