@@ -81,10 +81,10 @@ for item, category in plan:
     destination_folder.mkdir(exist_ok=True)
     destination = destination_folder / item.name
 
-    if destination.exists():
-        print("Name conflict:", destination)
-    else:
-        print("Destination available:", destination)
+    counter = 1
+    while destination.exists():
+        destination = destination_folder / f"{item.stem}_{counter}{item.suffix}"
+        counter = counter + 1
 
     print(item.name, "->", destination)
 
