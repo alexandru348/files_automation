@@ -64,8 +64,16 @@ if plan:
         print(item.name, "->", category)
 else:
     print("No files to organize.")
+    raise SystemExit
 
 # 4. Ask for the user's confirmation.
+
+confirmation = input("Organize these files? (y/n): ").lower()
+
+if confirmation != "y":
+    print("Organization cancelled.")
+    raise SystemExit
+
 # 5. If the user confirms, start organizing the files.
 # 6. Show the final report: found, moved, skipped, errors.
 
