@@ -76,6 +76,7 @@ if confirmation != "y":
 
 # 5. If the user confirms, start organizing the files.
 moved = 0
+errors = 0
 
 for item, category in plan:
     try:
@@ -94,11 +95,13 @@ for item, category in plan:
 
         print(item.name, "->", destination)
     except OSError as error:
+        errors = errors + 1
         print("Error processing:", item.name, "-", error)
 
 # 6. Show the final report: found, moved, skipped, errors.
 
 print("Moved:", moved)
+print("Errors:", errors)
 
 # Subfolders are ignored druing scanning, and the tool's Python files are protected.
 # organizer.py handles name conflicts and errors during file moves.
