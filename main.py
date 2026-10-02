@@ -61,6 +61,12 @@ if plan:
         print(item.name, "->", category)
 else:
     print("No files to organize.")
+    print("Final report:")
+    print("Found:", found)
+    print("Moved:", 0)
+    print("Skipped:", skipped)
+    print("Errors:", 0)
+
     raise SystemExit
 
 # 4. Ask for the user's confirmation.
