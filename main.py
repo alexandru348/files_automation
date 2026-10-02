@@ -27,9 +27,6 @@ for item in Path(folder_path).iterdir():
         else:
             files.append(item)
 
-print("Found:", found)
-print("Skipped:", skipped)
-
 if files:
     print("Files in folder:")
     for item in files:
@@ -100,7 +97,10 @@ for item, category in plan:
 
 # 6. Show the final report: found, moved, skipped, errors.
 
+print("Final report:")
+print("Found:", found)
 print("Moved:", moved)
+print("Skipped:", skipped)
 print("Errors:", errors)
 
 # Subfolders are ignored druing scanning, and the tool's Python files are protected.
